@@ -23,16 +23,18 @@
          }
             .header h1 {
                 color: rgb(116, 130, 230);
+                ; margin-top: 50px
             }
              .header h2 {
                  font-weight:300;
-                 margin:0;
+                 margin-top:0;
                  color: rgb(116, 130, 230);
              }
     	
-		h2 { position: relative; }
-		h2:before, ul:before { display: block; content: " "; margin-top: -50px; height: 50px; visibility: hidden; }
-	
+		h2 { position: relative;}
+		h2:before { display: block; content: " "; margin-top: -80px; height: 80px; visibility: hidden; },
+		ul:before { display: block; content: " "; margin-top: -50px; height: 50px; visibility: hidden; }
+
     </style>
     <title>Kevin Shain</title>
   </head>
@@ -44,25 +46,51 @@
             <li class="yui3-menu-active"><a href="http://kevinshain.github.io/" target="_blank">Home</a></li>
             <li><a href="http://github.com/kevinshain/">My Github</a></li>
             <li><a href="https://www.linkedin.com/in/kevinshain">My LinkedIn</a></li>
-            <li><a href="#Adaptive">Adaptive Qubit Measurement</a></li>
             <li><a href="#About">About Me</a></li>
-
         </ul>
+        <ul>
+        	<li><a class="yui3-menu-label" href="#Adaptive"><em>Featured Projects:</em></a></li>
+            <li><a href="#Adaptive">Adaptive Qubit Measurement</a></li>
+            <li><a href="#PCR">PCR Fluorescence Curves</a></li>
+            <li><a href="#Kobe">Kobe's Shooting Percentage</a></li>
+        </ul>
+			
     </div>
+
     <div class="header yui3-u-1">
         <h1 class="yui3-u-1">Data Science in the Lab</h1>
     </div>
+    
     <div class="content">
         <h2 id="Adaptive">An Adaptive Bayesian Algorithm for Optimal Qubit Measurement</h2>
         I did research on quantum for a couple of years as an undergrad mainly focusing on hardware that could prolong
-        the coherence time of a superconducting qubit (<a href="https://arxiv.org/pdf/1604.06514v1.pdf" target="_blank">link<a/>).This
+        the coherence time of a superconducting qubit (<a href="https://arxiv.org/pdf/1604.06514v1.pdf" target="_blank">link</a>).This
         project tackles decoherence from a data analysis perspective. The adaptive Bayesian algorithm updates the estimate
         of qubit parameter &#916Bz after each measurement and uses that knowledge to optimize the information gained
         from the next measurement.
         <center>
         <p><embed src="Shain_AdaptiveBayesianAlgorithm.pdf" width="600" height="800" alt="pdf" pluginspage="http://www.adobe.com/products/acrobat/readstep2.html" internalinstanceid="9" title=""></p>
 		</center>
-
+	</div>	
+		
+	<div class="content">
+        <h2 id="PCR">Qualitative and Quantitative Real-Time PCR analysis</h2>
+        Real-time polymerase chain reaction (PCR) data comes in the form of fluorescence curves, the fluorescence signal at each cycle, which indicate the concentration of the analyte. Each cycle should double the concentration of the
+        analyte until an ingredient in the reaction is used up. My goals are both a qualitative and quantitative analysis of the fluorescence curves. It is important to industry that there is an extremely robust way of distinguishing the presence of
+        some biological molecule. This has proved to be tricky and human graders are still employed to separate positive from negative curves. The root of the problem is often the variable background signal, so I am attempting to build a classified 
+        on top of the <a href="https://www.abbottmolecular.com/maxratio-data-analysis.html" target="_blank">maxRatio</a> algorithm which nicely handles the data baselining. For the quantitative analysis, I am investigating the raw fluorescence curves
+        to find the initial concentration of the analyte. The initial concentration is calculated based on the cycle number when the fluorescence signal exceeds the background, but finding that cycle number is a challenge. Because this research is going 
+        towards a publication, I cannot show the analysis yet.
+	</div>
+		
+	<div class="content">
+        <h2 id="Kobe">Kobe Bryant's Shooting Percentage Kaggle Competition</h2>
+		In honor of Kobe Bryant retiring from the NBA after playing for 20 years, Kaggle hosted a competition to predict his likelihood of making various shots. The data was already very clean, so the main effort went into feature engineering and 
+		evaluating different types of classifiers. Much of the data was qualitative categories of shot type, action type, or opponent, each of which had many options. I handled this using dummy variables corresponding to each option in each category, 
+		which Pandas makes very simple. Some of the classifiers I tried were random forests, gradient boosting, and adaptive boosting, with a carefully tuned random forest performing the best. The classifiers were evaluated using 10-fold cross validation 
+		and the log-loss metric. I was trying to predict a chance of making the shot, but in the data, the shot is either a make (1) or miss (0). Therefore, the log-loss makes sense as a metric because it penalizes more if the prediction is confidently wrong. 
+		You can view my analysis in the iPython notebook. There is nothing wild about the approach, but this shows that sensible feature engineering and cross validation is enough to reach 4th place out of over 1000 on the public leaderboard.
+	</div>
 		<hr style="height:4px;border:none;color:#525252;background-color:#525252;" />
 		<h2 id="About">About Me</h2>
 		<img style="margin-right:20px" height="148" width="140" src="me.jpg" align="left">
