@@ -78,7 +78,7 @@
 	<div class="content">
         <h2 id="PCR">Qualitative and Quantitative Real-Time PCR analysis</h2>
         Real-time polymerase chain reaction (PCR) data comes in the form of fluorescence curves, the fluorescence signal at each cycle, which indicate the concentration of the analyte. Each cycle should double the concentration of the
-        analyte until an ingredient in the reaction is used up. My goals are both a qualitative and quantitative analysis of the fluorescence curves. It is important to industry that there is an extremely robust way of distinguishing the presence of
+        analyte until an ingredient in the reaction is used up. My goals are both a qualitative and quantitative analysis of the fluorescence curves. It is important to industry that there be an extremely robust way of distinguishing the presence of
         some biological molecule. This has proved to be tricky and human graders are still employed to separate positive from negative curves. The root of the problem is often the variable background signal, so I am attempting to build a classified 
         on top of the <a href="https://www.abbottmolecular.com/maxratio-data-analysis.html" target="_blank">maxRatio</a> algorithm which nicely handles the data baselining. For the quantitative analysis, I am investigating the raw fluorescence curves
         to find the initial concentration of the analyte. The initial concentration is calculated based on the cycle number when the fluorescence signal exceeds the background, but finding that cycle number is a challenge. Because this research is going 
